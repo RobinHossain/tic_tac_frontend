@@ -102,7 +102,9 @@ class Game extends React.Component {
         const self = this;
         setTimeout(function () {
             const game_data = self.props.game_data;
-            self.setState({ history: game_data.history, stepNumber: game_data.step_number, xIsNext: game_data.x_is_next })
+            if(game_data !== null && game_data.step_number > 0){
+                self.setState({ history: game_data.history, stepNumber: game_data.step_number, xIsNext: game_data.x_is_next })
+            }
         });
     };
 
